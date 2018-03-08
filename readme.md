@@ -1,4 +1,20 @@
-RESTFUL ROUTES
+YelpCamp Add
+
+From the web developer bootcamp
+
+
+******************
+     DESIGN
+******************
+
+#RESTFUL ROUTES
+
+REST - a mapping between HTTP routes and CRUD
+
+CREATE
+READ
+UPDATE
+DESTROY
 
 name       url                  method     desc.                                  Mongoose Method
 ===============================================================================================================
@@ -11,10 +27,13 @@ UPDATE    /campgrounds/:id       PUT      Update an individual campground       
 DESTROY   /campgrounds/:id       DELETE   Delete an individual campground       campground.findByIdAndRemove()
 
 
-#RESTful Routing
-REST - a mapping between HTTP routes and CRUD
+******************
+    HOW TO RUN
+******************
 
-CREATE
-READ
-UPDATE
-DESTROY
+* Set your database with the environment variable DATABASEURL
+  example on linux:
+   $ export DATABASEURL=mongodb://localhost/yelp_camp
+
+  with heroku:
+   $ heroku config:set DATABASEURL=mongodb://<username>:<password>@ds261828.mlab.com:61828/yelpcamp
