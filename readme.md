@@ -1,4 +1,4 @@
-YelpCamp Add
+YelpCamp App
 
 From the web developer bootcamp
 
