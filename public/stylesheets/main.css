@@ -21,3 +21,9 @@
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
     color: #337AB7;
 }
+
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+}
