@@ -4,7 +4,7 @@ From the web developer bootcamp
 View at : https://yelpcamp-jd.herokuapp.com/
 
 
-## DESIGN
+### DESIGN
 
 RESTFUL ROUTES: a mapping between HTTP routes and CRUD
 
@@ -24,7 +24,7 @@ UPDATE    /campgrounds/:id       PUT      Update an individual campground       
 DESTROY   /campgrounds/:id       DELETE   Delete an individual campground       campground.findByIdAndRemove()
 ```
 
-## HOW TO RUN
+### HOW TO RUN
 
 * Set your database with the environment variable DATABASEURL
   example on linux:
