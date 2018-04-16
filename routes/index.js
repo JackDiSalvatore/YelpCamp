@@ -21,6 +21,11 @@ router.get("/register", function(req, res){
 router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username});
     
+    /* Should probably use an env variable for this? */
+    if(req.body.admincode == "secretcode1234") {
+        newUser.isAdmin = true;
+    }
+    
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);

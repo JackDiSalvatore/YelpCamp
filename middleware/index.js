@@ -14,7 +14,7 @@ module.exports = {
                         req.flash("error", "Item not found.");
                         return res.redirect("back");
                     }
-                    if(foundCampground.author.id.equals(req.user._id) || req.user.isAdmin){
+                    if(foundCampground.author.id.equals(req.user._id) ||  req.user.isAdmin){
                         next();
                     } else{
                         req.flash("error", "You don't have permission to do that");
@@ -38,7 +38,7 @@ module.exports = {
                         req.flash("error", "Item not found.");
                         return res.redirect("back");
                     }
-                    if(foundComment.author.id.equals(req.user._id) || req.user.isAdmin){
+                    if(foundComment.author.id.equals(req.user._id) ||  req.user.isAdmin){
                         next();
                     } else{
                         req.flash("error", "You don't have permission to do that");
