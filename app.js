@@ -13,6 +13,8 @@ var express        = require("express"),
     User           = require("./models/user"),
     seedBD         = require("./seeds");
 
+app.locals.moment = require("moment");
+
 var campgroundRoutes = require("./routes/campgrounds"),
     commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index");
