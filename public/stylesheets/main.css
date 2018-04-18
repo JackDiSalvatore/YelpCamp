@@ -27,3 +27,16 @@
     height: 400px;
     width: 100%;
 }
+
+/* User Profile */
+#avatar-pic {
+    width: 100px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul a {
+    color: #337AB7;
+}
