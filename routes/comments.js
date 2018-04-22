@@ -4,9 +4,8 @@ var Campground = require("../models/campground");
 var Comment    = require("../models/comment");
 var middleware = require("../middleware");
 
-/*======================================================
-                     COMMENTS ROUTES
-=======================================================*/
+/* COMMENTS ROUTES */
+
 /* NEW */
 router.get("/new", middleware.isLoggedIn, function(req, res){
     Campground.findById(req.params.id, function(err, campground){

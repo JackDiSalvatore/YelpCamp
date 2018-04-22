@@ -3,7 +3,11 @@ var router = express.Router();
 var Campground = require("../models/campground");
 var middleware = require("../middleware");
 var NodeGeocoder = require('node-geocoder');
- 
+
+/*======================================================
+                    VARIABLES
+=======================================================*/
+
 var options = {
   provider: 'google',
   httpAdapter: 'https',
@@ -14,18 +18,49 @@ var options = {
 var geocoder = NodeGeocoder(options);
 
 /*======================================================
-                      CAMPGROUND ROUTES
+                    FUNCTIONS
+=======================================================*/
+
+function escapeRegex(text) {
+    /* Fuzzy Search */
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
+
+
+/*======================================================
+                    CAMPGROUND ROUTES
 =======================================================*/
 
 /* INDEX - show all campgrounds */
 router.get("/", function(req, res){
-    
-    Campground.find({}, function(err, allCampgrounds){
-        if(!err){
-            /* console.log(allCampgrounds); List of all campgrounds from db */
-            res.render("campgrounds/index", {campgrounds: allCampgrounds, page: 'campgrounds'});
-        }
-    });
+    var noMatch = null;
+
+    if(req.query.search){
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        
+        /* Search for name */
+        Campground.find({name: regex}, function(err, allCampgrounds){
+            if(err){
+                console.log(err);
+            } else {
+                if(allCampgrounds.length < 1) {
+                    noMatch = "No campgrounds match that query, please try again.";
+                }
+                /* console.log(allCampgrounds); List of all campgrounds from db */
+                res.render("campgrounds/index", {campgrounds: allCampgrounds, page: 'campgrounds', noMatch: noMatch});
+            }
+        });
+    } else {
+        /* Get all campgrounds from the db */
+        Campground.find({}, function(err, allCampgrounds){
+            if(err){
+                console.log(err);
+            } else {
+                /* console.log(allCampgrounds); List of all campgrounds from db */
+                res.render("campgrounds/index", {campgrounds: allCampgrounds, page: 'campgrounds', noMatch: noMatch});
+            }
+        });
+    }
 
 });
 

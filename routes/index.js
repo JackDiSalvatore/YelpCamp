@@ -121,6 +121,7 @@ router.put("/user/:id", function(req, res){
 /*======================================================
                     PASSWORD RESET
 =======================================================*/
+
 /* GET Forgot page */
 router.get("/forgot", function(req, res){
     res.render("forgot");

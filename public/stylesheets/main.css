@@ -22,6 +22,12 @@
     color: #337AB7;
 }
 
+/* Search Bar */
+button, html input[type=button], input[type=reset], input[type=submit]:hover {
+    color:white;
+    background-color: #337AB7;
+}
+
 /* Google Maps */
 #map {
     height: 400px;
